@@ -1,0 +1,14 @@
+ skeleten0 of a fork:
+
+ input: a call of fork() in a process, kernel which supports memory management
+ and process table
+
+ mechanisms:
+
+ fork is invoked by user -> new entry in process table + memory cow -> file
+ descriptor duplication -> return value split -> two processes resume from
+ same instruction
+
+ output:
+ two nearly identical processes running concurrently, they may diverge if
+ parent calls wait() or child calls exec()
