@@ -1,0 +1,90 @@
+Skeleton0 Curriculum — OS Mastery
+
+Phase 1: Foundation of Reality (Hardware–Abstraction Interface)
+───────────────────────────────────────────────────────────────
+1. Skeleton0++: CPU Architecture
+2. Skeleton0++: Memory Hierarchy (Registers → Caches → RAM → Disk)
+3. Skeleton0++: Instruction Execution Pipeline (Fetch–Decode–Execute–Retire)
+4. Skeleton0++: Interrupt Handling and Hardware Signals
+5. Skeleton0++: BIOS, UEFI, and Boot Sequence
+
+Phase 2: The Kernel as Causal Governor
+──────────────────────────────────────
+6. Skeleton0++: Kernel Initialization and Role
+7. Skeleton0++: Syscall Mechanism and User-Kernel Transition
+8. Skeleton0++: Process Lifecycle and Context Switching
+9. Skeleton0++: Threading Model (User vs Kernel vs Hybrid Threads)
+10. Skeleton0++: CPU Scheduling Algorithms (with fairness, preemption, CFS)
+
+Phase 3: Memory as a Virtual Illusion
+─────────────────────────────────────
+11. Skeleton0++: Virtual Memory and Address Translation
+12. Skeleton0++: Page Tables, TLBs, and MMU Interaction
+13. Skeleton0++: Copy-on-Write, Memory-Mapped Files, and Shared Memory
+14. Skeleton0++: Swapping, Thrashing, and Memory Pressure Feedback Loops
+
+Phase 4: File Systems and Persistent State
+──────────────────────────────────────────
+15. Skeleton0++: File Abstraction — Inodes, VFS, Directories
+16. Skeleton0++: File System Structures (FAT, ext4, NTFS, ZFS)
+17. Skeleton0++: Mounting, Journaling, and Lazy Write
+18. Skeleton0++: I/O Scheduling and Block Device Interfaces
+
+Phase 5: I/O and Peripheral Dominion
+────────────────────────────────────
+19. Skeleton0++: Device Drivers and Hardware Abstraction Layer
+20. Skeleton0++: Interrupt vs Polling vs DMA
+21. Skeleton0++: Character vs Block Devices
+22. Skeleton0++: Network Interface Cards (NICs) and Driver Stack
+
+Phase 6: Networking from Kernel Up
+──────────────────────────────────
+23. Skeleton0++: Berkeley Sockets and Syscall Entry Points
+24. Skeleton0++: TCP/IP Stack Traversal (NIC to User Space)
+25. Skeleton0++: Routing, NAT, ARP, DNS inside OS
+26. Skeleton0++: Zero-copy Networking and NIC Offload
+
+Phase 7: Protection and Isolation
+────────────────────────────────
+27. Skeleton0++: User/Group Permissions and Capabilities
+28. Skeleton0++: Kernel-space vs User-space Isolation
+29. Skeleton0++: Namespaces, cgroups, and Containerization
+30. Skeleton0++: SELinux, AppArmor, and MAC vs DAC
+
+Phase 8: Advanced Scheduling and Multitasking
+────────────────────────────────────────────
+31. Skeleton0++: Priority Inversion, Deadlocks, and Starvation
+32. Skeleton0++: RTOS Scheduling and Real-Time Guarantees
+33. Skeleton0++: Cooperative vs Preemptive Multitasking
+34. Skeleton0++: Feedback Loops in Load-Adaptive Schedulers
+
+Phase 9: Virtualization and Hypercontrol
+───────────────────────────────────────
+35. Skeleton0++: Virtual Memory vs Virtual Machines
+36. Skeleton0++: Hypervisors (KVM, Xen, VMware) — Type I vs Type II
+37. Skeleton0++: Paravirtualization and IOMMU
+38. Skeleton0++: Emulation vs Containerization vs Virtualization
+
+Phase 10: Introspection and Forensics
+─────────────────────────────────────
+39. Skeleton0++: Kernel Debugging (dmesg, printk, KGDB, crash dumps)
+40. Skeleton0++: System Tracing (ftrace, strace, perf, eBPF)
+41. Skeleton0++: Core Dumps, Signals, and Process Introspection
+42. Skeleton0++: OS Logging Architecture and Journaling Daemons
+
+Phase 11: Power, Thermal, and Energy-Aware OS
+─────────────────────────────────────────────
+43. Skeleton0++: CPU Frequency Scaling and C/P States
+44. Skeleton0++: Tickless Kernel Design
+45. Skeleton0++: Battery-Aware Scheduling
+46. Skeleton0++: Resource Accounting (nice, ionice, quotas, ulimits)
+
+Phase 12: OS Design Philosophy and Causal Tradeoffs
+───────────────────────────────────────────────────
+47. Skeleton0++: Monolithic vs Microkernel vs Hybrid Kernel
+48. Skeleton0++: OS Design Tradeoffs (Performance, Security, Portability)
+49. Skeleton0++: OS as a Layered Causal Abstraction Stack
+50. Skeleton0++: Failure Mode Analysis of OS: Kernel Panic, Hangs, and Soft Locks
+
+
+

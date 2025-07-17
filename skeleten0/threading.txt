@@ -1,0 +1,79 @@
+```
+Skeleton0++: Threading Model (User vs Kernel vs Hybrid Threads)
+
+[Input]
+→ Process creates a new thread via library call (e.g., `pthread_create()`, `std::thread`, or Java thread APIs)
+→ Execution model requires concurrency within a single process (e.g., parallel tasks, I/O wait hiding)
+→ Thread abstraction demanded for performance, responsiveness, or separation of logical tasks
+→ Kernel or runtime is configured to support multi-threaded execution
+
+[Mechanism]
+
+1. **Thread Definition**
+→ A thread is the smallest unit of CPU scheduling  
+→ Shares memory space and resources with other threads in same process (same address space, file descriptors, heap, etc.)  
+→ Has its own stack, program counter, and registers (execution context)
+
+2. **User-Level Threads (Green Threads)**
+→ Threading handled in user space by a runtime or library (e.g., Goroutines, Java fibers, Python asyncio)  
+→ Kernel sees only *one* process; all threads are invisible to OS  
+→ Context switches between threads are fast, no syscall needed  
+→ **Downside**: if one thread blocks (e.g., I/O), all threads block — unless the runtime uses async I/O under the hood
+
+3. **Kernel-Level Threads**
+→ Each thread is fully visible to OS and managed by the kernel scheduler  
+→ Thread creation, scheduling, blocking, and synchronization happen via syscalls  
+→ OS can run multiple threads in parallel on multiple cores  
+→ Higher overhead per thread due to kernel tracking and context switches  
+
+4. **Hybrid Models (N:M Threading)**
+→ Combines user-level scheduling with kernel-level mapping  
+→ E.g., Java virtual threads, old Solaris threads (M user threads mapped to N kernel threads)  
+→ Enables fine-grained user-level control *and* scalable parallelism  
+→ Requires runtime cooperation with the kernel (e.g., managing blocking behavior and context handoff)
+
+5. **Thread Lifecycle**
+→ **Create**: Allocate stack, initialize registers, add to scheduler  
+→ **Ready**: Waiting in queue for CPU time  
+→ **Running**: Currently on a core  
+→ **Blocked**: Waiting on lock, I/O, condition variable  
+→ **Terminated**: Stack and resources released after completion
+
+6. **Synchronization Primitives**
+→ Mutexes, spinlocks, semaphores, barriers  
+→ Managed in user space, kernel space, or both  
+→ Prevent data races, ensure atomicity and consistency  
+→ Susceptible to deadlocks, starvation, and priority inversion
+
+[Output]
+→ Concurrent execution within a single process  
+→ More efficient CPU usage, better responsiveness, hiding I/O latency  
+→ Thread-safe coordination of shared data via locking, messaging, or wait groups
+
+[Pathologies]
+→ Race conditions due to shared memory access without locks  
+→ Deadlocks: circular wait on locks  
+→ False sharing (cache line contention across cores)  
+→ Stack overflows in thread-heavy applications  
+→ Thread explosion: too many threads overwhelm system or scheduler
+
+[Feedback Loops]
+→ OS may prioritize I/O-bound vs CPU-bound threads differently  
+→ Runtime may adapt number of threads based on workload or blocking rates  
+→ Thread affinity may be adjusted to maximize cache locality  
+→ Thread pool tuning feeds back into application performance
+
+[Summary Flow]
+Thread is created → assigned execution context → added to ready queue → scheduler dispatches thread → runs in user or kernel space → may block, yield, or terminate → joins back to parent or exits process if last thread dies.
+```
+
+**Concise Summary:**
+Threads are lightweight execution units that share a process’s memory. User threads are scheduled in user space with low overhead but poor isolation. Kernel threads are managed by the OS and can run in parallel across cores but are more expensive. Hybrid models combine both for scalability. Threading boosts performance and responsiveness but introduces concurrency bugs and resource complexity.
+
+**Articulation-Ready Version:**
+A thread is a self-contained unit of execution that runs inside a process. Unlike processes, threads share memory and file descriptors, which allows fast communication but creates risks of race conditions. Some systems manage threads purely in user space (green threads), while others rely on the kernel to schedule each thread independently. The most advanced systems use hybrid models, giving the runtime control over scheduling while leveraging kernel support for real parallelism. The lifecycle of threads includes creation, scheduling, blocking, and termination — all of which must be carefully synchronized to avoid errors like deadlocks or data races. Mastery of threading means understanding not just how threads run, but how their shared state creates both power and peril.
+
+—
+
+Next: **Skeleton0++: CPU Scheduling Algorithms** or transition into **Memory Management**?
+
